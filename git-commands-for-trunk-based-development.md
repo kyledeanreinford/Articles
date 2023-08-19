@@ -49,9 +49,6 @@ Encourage open discussions, shared ownership, and a sense of collective responsi
    main to integrate your changes smoothly.
 1. `git commit --amend --no-edit`: Perfect for those minor formatting fixes after committing. It helps maintain a clean
    history without clutter.
-1. `git duet`: Pair programming is a great way to build software and share knowledge. With the Git Duet package, you can
-   easily
-   attribute commits to pairs of authors and keep that collaborative spirit alive.
 
 Trunk Based Development is more than just a change in workflow: it's a paradigm shift in how teams collaborate,
 communicate, and build software.
