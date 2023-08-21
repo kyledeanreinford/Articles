@@ -40,6 +40,8 @@ Encourage open discussions, shared ownership, and a sense of collective responsi
    commits before they become part of the main branch.
 1. `git pull -r`: The "r" stands for rebase, and this command is your go-to for fetching remote changes and integrating
    them seamlessly into your local codebase.
+1. `git clean -df`: A command that cleans the working directory, removing untracked files and directories. Great for
+   getting rid of code you want to discard before pulling in changes.
 1. `git stash`/`git stash pop`: These commands allow you to temporarily set aside changes when you need to switch focus.
    Stash your work and then pop it back when you're ready to resume.
 1. `git stash push -m <message>`: This takes all your unfinished changes, packing them neatly in a box, and adds a label
