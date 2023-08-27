@@ -13,23 +13,11 @@ If you're up for trying out this streamlined approach, here are some essential b
 With Trunk Based Development, you say goodbye to countless feature branches and pull requests.
 Instead, you commit directly to the main branch, reducing complexity and maintaining a clear history.
 
-## Small, Frequent Commits:
+## Perfecting Commit History
 
 Embrace the concept of micro-commits.
 Instead of bundling multiple changes into a single commit, break them down into smaller, logical units.
 This allows for easier code reviews, pinpointing issues, and tracking changes over time.
-
-## Collaborative Environment:
-
-Cultivate an environment where collaboration and knowledge-sharing thrive.
-Encourage open discussions, shared ownership, and a sense of collective responsibility.
-
-## Essential Git Commands for TBD:
-
-### Perfecting Commit History
-
-Imagine you're working on a new feature. 
-Instead of bundling all your changes into one massive commit, embrace the philosophy of small commits:
 
 1. `git status`: Before you commit, check the status of your changes. This gives you a clear picture of what's going into your commit.
 1. `git add -AN`: Use this to add new files to git without staging them yet.
@@ -40,7 +28,7 @@ This ensures your commit history is clean and coherent.
 1. `git push`: Get your work up onto Development quickly. 
 The sooner your commits are on main, the easier it is for other devs to keep their work conflict-free.
 
-### Streamlined Branch Management
+## Streamlined Branch Management
 
 Sometimes, you need to work on smaller tasks or experiments that don't belong on the main branch just yet:
 
@@ -48,37 +36,42 @@ Sometimes, you need to work on smaller tasks or experiments that don't belong on
 1. `git rebase main`: When it's time to bring your changes back to the main branch, use this command to integrate your work smoothly.
 This streamlines your commit history, making it cleaner and more linear.
 
-### Oops, I Made A Linting Error!
+## Oops, I Made A Linting Error!
 
 You just made a commit, but now your linter is calling you out on a mistake. 
 If you haven't yet pushed your work, the easiest thing to do is run your lint fix, then do a quick alteration of your previous commit.
 
 1. `git commit --amend --no-edit`: This keeps your previous commit, but adds in new changes.
 
-### Stashing Your Work To Switch Context
+## Stashing Your Work To Switch Context
 
 You're in the middle of a feature, but not to a point where you're comfortable committing.
-You have a meeting coming up and you need to demo work from your machine.
+You have a meeting coming up, and you need to demo work from your machine.
 `git stash` to the rescue!
 
 1. `git stash`: This command allow you to temporarily set aside changes.
 It saves all of your changes and resets your IDE to the last commit.
-1. `git stash pop`: When you're ready to change your focus back, pop it out. 
+1. `git stash pop`: When you're ready to resume focus on your previous work, pop it out. 
 
-#### Bonus Stash Tip
+### Bonus Stash Tip
 
-If you utilize `git stash` often, sometimes you can get confused: "Did I already stash? Is it going to bring back the changes I need?"
+If you utilize `git stash` often, sometimes it can get confusing: "Did I already stash? Is it going to bring back the changes I need?"
 You can view your list of stashed items with `git stash list`, but it may just look like a weird, unreadable list.
-For clarity, you can use `git stash push -m <message>` to add the equivalent of a commit message to your stash.
+For clarity, you can use `git stash push -m "<message>"` to add the equivalent of a commit message to your stash.
 Example: `git stash push -m "Started building message publisher"`.
 When you're ready to pop it out, use `git stash list`, find your work (i.e. stash@{1}), and pop it with `git stash pop <number>`.
 
-### Get Rid Of Those WIPs
+## Get Rid Of Those WIPs
 
 Sometimes it makes sense to do WIP commits on a short-lived branch, but we do _not_ want those on our commit history.
 For this we can use an interactive rebase: it lets you reorder, combine, or tweak commits before they become part of the main branch.
-To clean up your history, first run `git log` to see how many commits you need to alter. 
-Run `git rebase -i HEAD~n` (where `n` is the number of commits to change).
+To clean up your history, figure out how many commits you need to alter:
+
+```bash 
+git log
+git rebase -i HEAD~n (where `n` is the number of commits to change)
+```
+
 Go in and squash, pick or reword. For example if I wanted to change my last three commits, I would run `git rebase -i HEAD~3` and get this prompt:
 
 ```
@@ -111,7 +104,7 @@ pick 3facb2a Add cookie for visitors
 Once it's saved (`:x`), running `git log` will show you a nice clean history that's ready to be pushed to the rest of your team.
 This is the ultimate tool for refining your commit history.
 
-### One-Off Commands
+## One-Off Commands
 
 1. `git log`: Your window into the history of your project. With git log, you can see commit messages, authors, dates, and a lot more.
 It's like a storybook of your project's journey.
@@ -119,6 +112,7 @@ It's like a storybook of your project's journey.
 It's like a family tree for your code.
 1. `git reset --soft HEAD~`: A nifty trick to uncommit changes from the most recent commit without tossing them out the window entirely. 
 This command gives you a chance to rework things before making that next commit.
+Also great if you want to see what was changed in the previous commit: run this and check the diff.
 1. `git clean -df`: A command that cleans the working directory, removing untracked files and directories. 
 Great for getting rid of code you want to discard before pulling in changes.
 
