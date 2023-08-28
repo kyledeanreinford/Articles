@@ -15,7 +15,7 @@ Instead, you commit directly to the main branch, reducing complexity and maintai
 
 ## Perfecting Commit History
 
-Embrace the concept of micro-commits.
+Adopt the concept of micro-commits.
 Instead of bundling multiple changes into a single commit, break them down into smaller, logical units.
 This allows for easier code reviews, pinpointing issues, and tracking changes over time.
 
